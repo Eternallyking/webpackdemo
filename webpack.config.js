@@ -29,25 +29,47 @@ module.exports = {
                 test: /\.less$/,
                 use: ["style-loader", "css-loader", "less-loader"]
             },
+            {
+                test: /\.(png|jpg|gif|jpeg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 2 * 1024,
+                            name: '[hash:6][ext]',
+                            outputPath: '/images'
+                        },
+                    },
+                ],
+            },
             // {
-            //     test: /\.(png|jpg|gif|jpeg)$/,
-            //     use: [
-            //         {
-            //             loader: 'url-loader', 
-            //             options: {
-            //                 limit: 2 * 1024,
-            //             },
-            //         },
-            //     ],
+            //     test: /\.(png|jpg|gif|jpeg)$/i,
+            //     type: 'asset',
+            //     parser: {
+            //         dataUrlCondition: {
+            //             maxSize: 2 * 1024,
+            //         }
+            //     }
+            // },
+            // {
+            //     test: /\.(eot|svg|ttf|woff|woff2)$/,
+            //     type: 'asset/resource',
+            //     generator: {
+            //         filename: 'font-[name].[hash:6][ext]'
+            //     }
             // },
             {
-                test: /\.(png|jpg|gif|jpeg)$/i,
-                type: 'asset',
-                parser: {
-                    dataUrlCondition: {
-                        maxSize: 2 * 1024
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 2 * 1024,
+                            name: '[name].[ext]',
+                            outputPath: "fonts/"
+                        }
                     }
-                }
+                ]
             }
         ]
     },
