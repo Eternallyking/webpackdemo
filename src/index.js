@@ -5,3 +5,4 @@ import './tab.js'
 import $ from 'jquery'
 $('#swiper').css('background', 'red')
 import './style/index.css'
+import './style/index.less'
