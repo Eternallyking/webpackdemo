@@ -15,3 +15,8 @@ const img1=document.createElement('img')
 img1.src =imgUrl1
 document.body.appendChild(img1)
 import './assets/fonts/iconfont.css'
+class App {
+    static a = 123
+  }
+  
+  console.log(App.a)
