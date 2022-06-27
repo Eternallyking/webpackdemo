@@ -2,3 +2,5 @@
 // console.log('实现tabs标签页的逻辑')
 import './banner.js'
 import './tab.js'
+import $ from 'jquery'
+$('#swiper').css('background', 'red')
